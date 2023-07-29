@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    *{padding: 0;
+    margin: 0;}
+    body{background-color: #333;}
+    .main{
+        display: none;
+        animation: change 2s;
+    }
+    .center{
+       
+        height: 60px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color:  #34b3f5;
+        gap: 90px;  
+        animation: change 2s; 
+        
+            
+    }
+   
+   
+li{
+    list-style: none;
+    color: #333;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+    font-size: 14px;
+    padding: 10px 30px;
+}
+li:hover{
+    color: white;
+    transition: color 0.5s;
+}
+.cross{
+    
+    border-radius: 5px;
+   border: 2px solid #fff;
+    padding: 4px 5px;
+    position: absolute;
+    left: 50%;
+    top: 69px;
+    transform: translateX(-50%);   
+    background-color: #34b3f5;
+    cursor: pointer;
+}
+.bar1,.bar2,.bar3{
+    background-color: #ffffff;
+    height: 5px;
+    width: 35px;
+    margin: 6px 0;
+    transition: 0.4s;
+}
+.change .bar1 {
+  transform: translate(0, 11px) rotate(-45deg);
+}
+
+.change .bar2 {opacity: 0;}
+
+.change .bar3 {
+  transform: translate(0, -11px) rotate(45deg);
+}
+@keyframes change {
+    0%{height:0; }
+    100%{height:60px;}
+}
+</style>
+<body>
+    <div class="main">
+        <ul class="center">
+            <li>HOME</li>
+            <li>ABOUT</li>
+            <li>SERVICES</li>
+            <li>PORTFOLIO</li>
+            <li>PRODUCTS</li>
+            <li>CONTACT</li>
+        </ul>
+    </div>
+    <div class="cross" onclick="show(this)">
+        <div class="bar1"></div>
+        <div class="bar2"></div>
+        <div class="bar3"></div>
+    </div>
+
+</body>
+<script>
+    function show(x) {
+      x.classList.toggle("change");
+
+      var center = document.querySelector(".main")
+
+      if(center.style.display !== "block"){ 
+     center.style.display="block"}else{ center.style.display="none"}
+      
+    }
+    
+    </script>
+</html>
